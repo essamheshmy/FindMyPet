@@ -222,6 +222,7 @@ class AllPostsFragment : Fragment() {
 
                         }
                         is Resource.Error -> {
+
                             handleResourceError(result)
                         }
                         Resource.Loading -> {
@@ -249,9 +250,10 @@ class AllPostsFragment : Fragment() {
 
     private fun handleResourceError(resource: Resource.Error) {
         binding.prograss.visibility = View.GONE
+        binding.tvEmptySorted.visibility =View.VISIBLE
         val error = resource.throwable
         Log.v("allPosts", error.toString())
-        Toast.makeText(requireContext(), "Error getting the posts", Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(),error.message.toString() , Toast.LENGTH_SHORT).show()
     }
 
 }
