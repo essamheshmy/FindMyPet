@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 rootProject.name = "FindMyPet"
 include ':app'
 include ':data'
+include ':domain'
